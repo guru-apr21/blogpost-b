@@ -1,13 +1,9 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const blogRouter = require("./routes/blog");
-require("./db")();
+const joi = require("joi");
+joi.objectId = require("joi-objectid")(joi);
+const app = require("./app");
+const http = require("http");
 
-app.use(cors());
-app.use(express.json());
-
-app.use("/api/blogs", blogRouter);
+const server = http.createServer(app);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+server.listen(PORT, () => console.log(`server listening on port ${PORT}`));

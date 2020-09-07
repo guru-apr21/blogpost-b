@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   if (!password) return res.status(400).send({ error: "Invalid credentials" });
 
   console.log(user);
-  const token = user.genAuthToken(user.username, user._id);
+  const token = user.genAuthToken(user.name, user._id);
   res.send({ token, username: user.username, name: user.name });
 });
 

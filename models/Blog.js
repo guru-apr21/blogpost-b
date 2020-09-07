@@ -24,7 +24,7 @@ const validateBlog = (blog) => {
     author: joi.string().required().min(5).max(25),
     url: joi.string().required(),
     likes: joi.number(),
-    user: joi.objectId().required(),
+    // user: joi.objectId().required(),
   });
   return schema.validate(blog);
 };

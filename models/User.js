@@ -22,9 +22,8 @@ userSchema.set("toJSON", {
   },
 });
 
-userSchema.methods.genAuthToken = (username, id) => {
-  console.log(this);
-  return jwt.sign({ username, id }, process.env.jwtPrivateKey);
+userSchema.methods.genAuthToken = (name, id) => {
+  return jwt.sign({ name, id }, process.env.jwtPrivateKey);
 };
 
 const validateUser = (user) => {
